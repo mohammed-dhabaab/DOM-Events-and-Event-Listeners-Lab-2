@@ -56,7 +56,7 @@
             <button class="btn bt-change-color">Change Color</button>
             <button class="btn bt-change-background">Change Background</button>
         </div>
-        <button class="btn bt-image">Image</button>
+        <button class="btn bt-image">Toggle Image</button>
         <img width="200" src="" class="image" style="display: none;">
     </main>
 
@@ -72,8 +72,7 @@
         const image = document.querySelector(".image");
         const btImage = document.querySelector(".bt-image");
 
-
-        let isOriginalText = true
+        let isOriginalText = true;
         btChangeText.addEventListener("click", () => {
             if (isOriginalText) {
                 title.innerText = "Mohacs";
@@ -83,40 +82,38 @@
             isOriginalText = !isOriginalText;
         });
 
-
-        let fontSize = 40
+        let fontSize = 40;
         btIncreaseFontSize.addEventListener("click", () => {
-            fontSize += 1
+            fontSize += 1;
             title.style.fontSize = `${fontSize}px`;
-        })
+        });
 
         btDecreaseFontSize.addEventListener("click", () => {
-            fontSize -= 1
+            fontSize -= 1;
             title.style.fontSize = `${fontSize}px`;
-        })
+        });
 
         btChangeColor.addEventListener("click", () => {
             title.style.color = "blue";
-        })
+        });
 
         btChangeBackground.addEventListener("click", () => {
             title.style.backgroundColor = "lime";
-        })
-
+        });
 
         const image1 = "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0fGVufDB8fDB8fHww";
         const image2 = "https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9yZXN0fGVufDB8fDB8fHww";
 
         image.src = image1;
 
-        btImage.addEventListener("onclick", () => {
+        btImage.addEventListener("click", () => {
             if (image.src === image1) {
                 image.src = image2;
             } else {
                 image.src = image1;
             }
             image.style.display = "block";
-        })
+        });
 
     </script>
 </body>
