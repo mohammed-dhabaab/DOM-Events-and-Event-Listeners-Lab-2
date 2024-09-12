@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .btns-container {
+            background-color: aqua;
+            padding: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            border-radius: 20px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border: 1px solid blue;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <h1 class="title">Mohammed</h1>
+
+        <div class="btns-container">
+            <button class="btn bt-change-text">Change Text</button>
+            <button class="btn bt-increase-font-size">Increase Font Size</button>
+            <button class="btn bt-decrease-font-size">Decrease Font Size</button>
+            <button class="btn bt-change-color">Change Color</button>
+            <button class="btn bt-change-background">Change Background</button>
+        </div>
+        <button class="btn bt-image">Image</button>
+        <img width="200" src="" class="image" style="display: none;">
+    </main>
+
+    <script>
+        const title = document.querySelector(".title");
+
+        const btChangeText = document.querySelector(".bt-change-text");
+        const btIncreaseFontSize = document.querySelector(".bt-increase-font-size");
+        const btDecreaseFontSize = document.querySelector(".bt-decrease-font-size");
+        const btChangeColor = document.querySelector(".bt-change-color");
+        const btChangeBackground = document.querySelector(".bt-change-background");
+
+        const image = document.querySelector(".image");
+        const btImage = document.querySelector(".bt-image");
+
+
+        let isOriginalText = true
+        btChangeText.addEventListener("click", () => {
+            if (isOriginalText) {
+                title.innerText = "Mohacs";
+            } else {
+                title.innerText = "Mohammed";
+            }
+            isOriginalText = !isOriginalText;
+        });
+
+
+        let fontSize = 40
+        btIncreaseFontSize.addEventListener("click", () => {
+            fontSize += 1
+            title.style.fontSize = `${fontSize}px`;
+        })
+
+        btDecreaseFontSize.addEventListener("click", () => {
+            fontSize -= 1
+            title.style.fontSize = `${fontSize}px`;
+        })
+
+        btChangeColor.addEventListener("click", () => {
+            title.style.color = "blue";
+        })
+
+        btChangeBackground.addEventListener("click", () => {
+            title.style.backgroundColor = "lime";
+        })
+
+
+        const image1 = "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0fGVufDB8fDB8fHww";
+        const image2 = "https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9yZXN0fGVufDB8fDB8fHww";
+
+        image.src = image1;
+
+        btImage.addEventListener("onclick", () => {
+            if (image.src === image1) {
+                image.src = image2;
+            } else {
+                image.src = image1;
+            }
+            image.style.display = "block";
+        })
+
+    </script>
+</body>
+
+</html>
